@@ -10,7 +10,7 @@ def unir_csv (ruta, nombre):
     dfs = []
 
     for archivo in os.listdir(directorio):
-        if archivo.startswith("cross_validation_metrics") and archivo.endswith("CP.csv"):
+        if archivo.startswith("cross_validation_metrics") and archivo.endswith("SP.csv"):
             ruta_archivo = os.path.join(directorio, archivo)
             df = pd.read_csv(ruta_archivo)
             dfs.append(df)
@@ -27,7 +27,6 @@ def crear_grafica(csv, nombre, info, nombre_grafico):
     sns.lineplot(data=datos, x='epoch', y=info[1], label=info[1])
     plt.xlabel('Epocas')
     plt.ylabel(info[0]) 
-    #plt.ylim(0.940, 0.970)
     plt.title(nombre_grafico)
     plt.legend()
     plt.savefig(nombre)
@@ -63,18 +62,21 @@ def crear_grafica_metricas_bloxplot(csv, nombre, metrica, nombre_grafico):
     
     plt.savefig(nombre)
     plt.close()
-    
+
+#ruta = '/home/jesus/SugarCane/Pruebas_Exhaustivas/DenseNet121/'
+#nombre = 'Metrics_SP_DenseNet121'
+#unir_csv (ruta, nombre)
 #unir_csv('../../Pruebas_Exhaustivas/DenseNet121/', 'Metrics_CP_DenseNet121')    
 #datos = ['loss', 'val_loss']
-#nombre = 'lineplot_loss_cp.png'
-#csv = 'Graficas_DenseNet121/Data/History_CP_DenseNet121.csv'
-#nombre_grafico = 'Loss con peso'
+#nombre = 'lineplot_loss_sp.png'
+#csv = 'Graficas_DenseNet121/Data/History_SP_DenseNet121.csv'
+#nombre_grafico = 'Loss'
 #crear_grafica(csv, nombre, datos, nombre_grafico)
-
+#def crear_grafica_metricas(csv, nombre, metrica, nombre_grafico):
 metricas = ['accuracy', 'micro_avg_precision', 'micro_avg_recall', 'micro_avg_f1', 
             'macro_avg_precision', 'macro_avg_recall', 'macro_avg_f1']
-csv = 'Graficas_DenseNet121/Data/Metrics_CP_DenseNet121.csv'
+csv = 'Graficas_DenseNet121/Data/Metrics_SP_DenseNet121.csv'
 for metrica in metricas:
-    nombre = 'Metrica_' + metrica + '_cp_Boxplot.png'
-    nombre_grafico = metrica + ' con peso'
+    nombre = 'Metrica_' + metrica + '_sp_Boxplot.png'
+    nombre_grafico = metrica
     crear_grafica_metricas_bloxplot(csv, nombre, metrica, nombre_grafico)

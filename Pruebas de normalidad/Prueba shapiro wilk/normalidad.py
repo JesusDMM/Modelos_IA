@@ -12,10 +12,10 @@ def test_normalidad(data_frame, metricas, data_type):
             test.insert(0, 'Metrica', metrica)
             test.insert(1, 'Data_Type', tipo)
             all_results = pd.concat([all_results, test], ignore_index=True)
-    all_results.to_csv('Prueba_normal_efficientnet_sp_shapirowilk.csv', index=False)
+    all_results.to_csv('Prueba_normal_densenet121_sp_shapirowilk.csv', index=False)
 
 metricas = ['accuracy','micro_avg_precision','micro_avg_recall','micro_avg_f1','macro_avg_precision','macro_avg_recall','macro_avg_f1']
-csv = '/home/jesus/SugarCane/Pruebas_Estadisticas/EfficientNetV2B0/Graficas_EfficientNetV2B0/Data/Metricas_Efficientnet_sp.csv'
+csv = '/home/jesus/SugarCane/Pruebas_Estadisticas/DenseNet121/Graficas_DenseNet121/Data/Metrics_SP_DenseNet121.csv'
 data_frame = pd.read_csv(csv)
 data_type = data_frame['data_type'].unique()
 test_normalidad(data_frame, metricas, data_type)
