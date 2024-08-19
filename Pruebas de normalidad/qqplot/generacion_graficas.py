@@ -18,7 +18,7 @@ def test_normalidad(data_frame, metricas, data_type):
         plt.close()
 
 metricas = ['accuracy','micro_avg_precision','micro_avg_recall','micro_avg_f1','macro_avg_precision','macro_avg_recall','macro_avg_f1']
-csv = '/home/jesus/SugarCane/Pruebas_Estadisticas/DenseNet121/Graficas_DenseNet121/Data/Metrics_SP_DenseNet121.csv'
+csv = '/home/jesus/SugarCane/Pruebas_Estadisticas/ResNet101V2/Graficas_ResNet101V2/Data/Metrics_SP_ResNet101V2.csv'
 data_frame = pd.read_csv(csv)
 data_type = data_frame['data_type'].unique()
 test_normalidad(data_frame, metricas, data_type)
