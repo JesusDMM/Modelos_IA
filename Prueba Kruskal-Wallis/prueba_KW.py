@@ -7,8 +7,8 @@ def Kruskal_wallis(metricas, csvs, nombre_csv, tipo):
     for id, csv in enumerate(csvs):
         datos = pd.read_csv(csv)
         for metrica in metricas:
-            datos_entrenamiento = datos[datos['data_type'] == 'train'][metrica]
-            datos_test = datos[datos['data_type'] == 'test'][metrica]
+            datos_entrenamiento = datos[datos['data_type'] == 'train'][metrica].sort_values(ascending=True)
+            datos_test = datos[datos['data_type'] == 'test'][metrica].sort_values(ascending=True)
             
             stat, p_value = stats.kruskal(datos_entrenamiento, datos_test)
             #H0: las distribuciones entre train y test son iguales
@@ -32,6 +32,6 @@ datos_sp = ['/home/jesus/SugarCane/Pruebas_Estadisticas/EfficientNetV2B0/Grafica
             '/home/jesus/SugarCane/Pruebas_Estadisticas/ResNet101V2/Graficas_ResNet101V2/Data/Metrics_SP_ResNet101V2.csv']
 
 metricas = ['accuracy', 'micro_avg_precision', 'micro_avg_recall', 'micro_avg_f1', 'macro_avg_precision', 'macro_avg_recall', 'macro_avg_f1']
-nombre_csv = 'Kruskal-Wallis_sp.csv'
+nombre_csv = 'nuevo.csv'
 tipo = ['EfficientNetV2B0', 'DenseNet121', 'ResNet101V2']
-Kruskal_wallis(metricas, datos_sp, nombre_csv, tipo)
+Kruskal_wallis(metricas, datos_cp, nombre_csv, tipo)

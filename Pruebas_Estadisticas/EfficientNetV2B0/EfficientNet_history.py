@@ -55,10 +55,10 @@ def crear_grafica_metricas_bloxplot(csv, nombre, metrica, nombre_grafico):
     
     datos = pd.read_csv(csv)
     
-    sns.boxplot(data=datos, x=metrica, y='data_type')
+    sns.boxplot(data=datos, x='data_type', y=metrica)
     
-    plt.xlabel(metrica)
-    plt.ylabel('Tipo')
+    plt.xlabel('category')
+    plt.ylabel('')
     plt.title(nombre_grafico)
     
     plt.savefig(nombre)
@@ -77,7 +77,7 @@ metricas = ['accuracy', 'micro_avg_precision', 'micro_avg_recall', 'micro_avg_f1
             'macro_avg_precision', 'macro_avg_recall', 'macro_avg_f1']
 
 for metrica in metricas:
-    csv = 'Metricas_Efficientnet_sp.csv'
-    nombre = 'Metrica_' + metrica + '_sp_Bloxplot.png'
-    nombre_grafico = metrica + ' sin peso'
+    csv = '/home/jesus/SugarCane/Pruebas_Estadisticas/ResNet101V2/Graficas_ResNet101V2/Data/Metrics_SP_ResNet101V2.csv'
+    nombre = 'Metrica_' + metrica + '_ResNet_sp.png'
+    nombre_grafico = metrica
     crear_grafica_metricas_bloxplot(csv, nombre, metrica, nombre_grafico)
