@@ -7,12 +7,12 @@ def Kruskal_wallis(metricas, csvs, nombre_csv, tipo):
     for id, csv in enumerate(csvs):
         datos = pd.read_csv(csv)
         for metrica in metricas:
-            datos_entrenamiento = datos[datos['data_type'] == 'train'][metrica].sort_values(ascending=True)
+            datos_entrenamiento = datos[datos['data_type'] == 'val'][metrica].sort_values(ascending=True)
             datos_test = datos[datos['data_type'] == 'test'][metrica].sort_values(ascending=True)
             
             stat, p_value = stats.kruskal(datos_entrenamiento, datos_test)
-            #H0: las distribuciones entre train y test son iguales
-            #H1: las distribuciones entre train y test son diferentes
+            #H0: las distribuciones entre val y test son iguales
+            #H1: las distribuciones entre val y test son diferentes
             h = 'h0' if p_value > 0.05 else 'h1'
                 
             data = [
