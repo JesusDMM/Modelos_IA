@@ -29,7 +29,7 @@ def Mediana_iqr(csvs):
                                                               'iqr validacion', 'mediana validacion',
                                                               'iqr test', 'mediana test'])
         dfs = pd.concat([dfs, df], ignore_index=True)
-    dfs.to_csv('Iqr y Mediana de modelos no pre entrenados.csv', index=False)
+    dfs.to_csv('Iqr y Mediana de modelos no pre entrenados global.csv', index=False)
 
 
 datos_cp = ['/home/jesus/SugarCane/Pruebas_Estadisticas/EfficientNetV2B0/Graficas_EfficientNetV2B0/Data/Metricas_Efficientnet_cp.csv',
