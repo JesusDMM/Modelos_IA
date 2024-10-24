@@ -50,5 +50,64 @@ Se realizó la prueba de normalidad de Shapiro Wilk para verificar si los datos 
 
 ![''](Pruebas%20de%20normalidad/qqplot/Efficientnetv2b0%20con%20pesos%20imagenet/qqplot_accuracy.png)
 
-AL no seguir una normalidad se decidio aplicar una prueba 
+AL no seguir una normalidad se opto por mostrar los resultados de la mediana y IQR.
 
+<table>
+  <thead>
+  <tr>
+    <th colspan="7">Accuracy</th>
+  </tr>
+   <tr>
+    <td rowspan="2"><b>Models</b></td>
+    <td colspan="2"><b>Training set</b></td>
+    <td colspan="2"><b>Validation set</b></td>
+    <td colspan="2"><b>Test set</b></td>
+  </tr>
+  <tr>
+    <td>&#x0078;&#x0303;</td>
+    <td>IQR</td>
+    <td>&#x0078;&#x0303;</td>
+    <td>IQR</td>
+    <td>&#x0078;&#x0303;</td>
+    <td>IQR</td>
+  </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>EfficientNetV2B0</td>
+        <td>0.9965</td>
+        <td>0.0052</td>
+        <td>0.9792</td>
+        <td>0.0096</td>
+        <td>0.9773</td>
+        <td>0.0100 </td>
+    </tr>
+    <tr>
+          <td>DenseNet121</td>
+          <td>0.9723</td>
+          <td>0.0280</td>
+          <td>0.9500</td>
+          <td>0.0317</td>
+          <td>0.9447</td>
+          <td>0.0333 </td>
+      </tr>
+      <tr>
+          <td>ResNet101V2</td>
+          <td>0.8779</td>
+          <td>0.1480</td>
+          <td>0.8500</td>
+          <td>0.1313</td>
+          <td>0.8447</td>
+          <td>0.1397 </td>
+      </tr>
+</tbody>
+</table>
+
+Por ultimo se realizó una prueba de Dunn para ver que distribuciones de los modelos son similares.
+
+![''](Prueba%20Dunn/Dunn-Bonferroni.png)
+
+## Resultado final.
+El mejor modelo fue el __EfficientNetV2B0__ por su alto accuracy y su perdida baja. El modelo fue puesto como un web service utilizando flask para el apartado de api y utilizando docker para crear un contendedor. Aparte incluye una pagina web con interfaz grafica en el cual puedes comprobar el funcionamiento. Todo lo puedes encontrar en [aquí](https://github.com/JesusDMM/Modelo_IA_Docker)
+
+Todos los resultados de todas las metricas para cada modelo en especifico lo puedes encontrar [aquí](https://github.com/JesusDMM/SugarCane)
