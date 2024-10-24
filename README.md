@@ -38,6 +38,9 @@ Se realizó una división en los datos utilizando K-Fold Cross-Validation en 31 
 ## Análisis de resultados.
 El resultado de cada analisis fue utilizando las 155 muestras de cada modelo.
 
+> [!IMPORTANT]  
+> Los siguientes resultados son en base al modelo EfficientNetV2B0
+
 Primeramente se analizó el comportamiento del accuracy durante el entrenamiento para verificar que no haya algun sobreajuste o subajuste.
 
 ![''](Pruebas_Estadisticas/EfficientNetV2B0/Graficas_EfficientNetV2B0/History/lineplot_accuracy_cp.png)
@@ -108,6 +111,6 @@ Por ultimo se realizó una prueba de Dunn para ver que distribuciones de los mod
 ![''](Prueba%20Dunn/Dunn-Bonferroni.png)
 
 ## Resultado final.
-El mejor modelo fue el __EfficientNetV2B0__ por su alto accuracy y su perdida baja. El modelo fue puesto como un web service utilizando flask para el apartado de api y utilizando docker para crear un contendedor. Aparte incluye una pagina web con interfaz grafica en el cual puedes comprobar el funcionamiento. Todo lo puedes encontrar en [aquí](https://github.com/JesusDMM/Modelo_IA_Docker)
+El mejor modelo fue el __EfficientNetV2B0__ por su alto accuracy y su perdida baja. El modelo fue puesto como un web service utilizando flask para el apartado de api y utilizando docker para crear un contendedor. Aparte incluye una pagina web con interfaz grafica en el cual puedes comprobar el funcionamiento. Todo lo puedes encontrar [aquí](https://github.com/JesusDMM/Modelo_IA_Docker)
 
 Todos los resultados de todas las metricas para cada modelo en especifico lo puedes encontrar [aquí](https://github.com/JesusDMM/SugarCane)
